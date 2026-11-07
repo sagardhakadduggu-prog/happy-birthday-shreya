@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Shreya</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(45deg,#ff69b4,#ff1493);
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+h1{
+    font-size:60px;
+    text-align:center;
+    animation:glow 2s infinite;
+}
+
+@keyframes glow{
+    0%{text-shadow:0 0 10px yellow;}
+    50%{text-shadow:0 0 30px white;}
+    100%{text-shadow:0 0 10px yellow;}
+}
+
+.balloon{
+    position:absolute;
+    font-size:50px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-150px);
+    }
+}
+</style>
+
+</head>
+<body>
+
+<h1 id="msg">🎂 HAPPY BIRTHDAY SHREYA 🎂</h1>
+
+<audio autoplay loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function createBalloon(){
+    let balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.innerHTML="🎈";
+
+    balloon.style.left=Math.random()*100+"vw";
+    balloon.style.animationDuration=
+    (Math.random()*3+3)+"s";
+
+    document.body.appendChild(balloon);
+
+    setTimeout(()=>{
+        balloon.remove();
+    },6000);
+}
+
+setInterval(createBalloon,300);
+
+</script>
+
+</body>
+</html>
